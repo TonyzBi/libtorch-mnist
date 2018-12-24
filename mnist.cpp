@@ -151,7 +151,7 @@ auto main(int argc, const char* argv[]) -> int {
 		model.parameters(),
 		torch::optim::SGDOptions(options.lr).momentum(options.momentum));
 
-	for (size_t epoch = 1; epoch <= options.epochs; ++epoch) {
+	for (int32_t epoch = 1; epoch <= options.epochs; ++epoch) {
 		train(
 			epoch, options, model, device, *train_loader, optimizer, dataset_size.value());
 		test(model, device, *test_loader, dataset_size.value());
